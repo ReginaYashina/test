@@ -1,0 +1,70 @@
+body{
+	margin:0;
+	padding:0;
+}
+
+#header{
+	height:260px;
+	background:url("../img/fon.jpg");
+}
+
+#logo{
+	float: right;
+}
+
+#logotext {
+	float:left;
+	padding:10px;
+	margin:0;
+}
+
+.topmenu {
+	display:flex;
+	width:100%;
+	margin:0 auto;
+}
+
+.topmenu a {
+	flex:1;
+	text-decoration: none;
+	background:green;
+	color:white;
+	text-align:center;
+	padding:20px 0;
+	border-right: solid 1px white;
+}
+
+ .topmenu a:hover{
+	 background: yellow;
+	 color:black;
+ }
+
+ .maintext{
+	 text-align: justify;
+ }
+ .footer {
+	 text-align:center;
+	 padding-top:50px;
+	 padding-bottom:50px;
+	 background:#F0E68C;
+	 color: black;
+ }
+ 
+
+ 
+ @media screen and (max-width:600px){
+	 #header{
+		 height:100px;
+	 }
+	 
+	 #logo{
+		 display: none;
+	 }
+	 
+	 .topmenu{
+		 flex-direction: column;
+	 }
+	 
+	 
+	 
+ }

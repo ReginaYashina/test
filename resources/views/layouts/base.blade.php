@@ -6,11 +6,13 @@
 		<meta name="keywords" content="через запятую ключевики">
 		<meta name="author" content="Yashina">
 		<title>Название сайта</title>
+		@section('styles')
 		<link type="text/css" rel=" stylesheet" href="{{asset('media/bootstrap/css/bootstrap.min.css')}}" />
 		<link type="text/css" rel=" stylesheet" href="{{asset('media/css/style.css')}}" />
-		@section('styles')
 		@show
 		@section('scripts')
+		<script src="{{asset('js/app.js')}}"></script>
+		
 		@show
 	</head>
 	<body>

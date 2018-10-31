@@ -24,48 +24,38 @@
 				@endphp
 			<tr>
 				<td>
-	@if ($products[$key]->picture)
-		<img class="product" src="{{asset('uploads/thumb/'.$products[$key]->picture)}}"/>
-	@else
-		<img class="product" src="{{asset('media/img/no_photo.png')}}"/>
-	@endif
+					@if ($products[$key]->picture)
+						<img class="product" src="{{asset('uploads/thumb/'.$products[$key]->picture)}}"/>
+					@else
+						<img class="product" src="{{asset('media/img/no_photo.png')}}"/>
+					@endif
 				</td>
 				<td>
-				{{$products[$key]->name}}
+					{{$products[$key]->name}}
 				</td>
 				<td>
-				{{$products[$key]->price}}
+					{{$products[$key]->price}}
 				</td><td>
-				{{$value}}
+					{{$value}}
 				</td>
 				<td>
-				{{$count}}
+					{{$count}}
 				</td>
 				<td>
-				<a href="{{asset('basket/dell/'.$key)}}" data-id="{{$key}}"> &times;</a>
+					<a href="{{asset('basket/dell/'.$key)}}" data-id="{{$key}}"> &times;</a>
 				</td>
-			
-			
-			
 			</tr>
 			@endforeach
-			
-			
-			
-			
 			<tr>
 				<td  colspan="3">Итого</td>
 				<td>{{$counts}}</td>
 				<td>{{$itog}}</td>
 				<td><a href="{{asset('basket/clear')}}"> Очистить корзину </a></td>
 			</tr>
-		
-		
-		
-		
-		
 		</table>
-		
+		<div class="col-md-10"></div>
+		<div class="col-md-2"> <a href="{{asset('orderreg')}}" class="btn btn-primary " >Перейти к оформлению заказа</a> </div>
+
 	</div>
 	
 @endsection

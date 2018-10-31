@@ -16,6 +16,6 @@ Route::get('basket/add/{id}', 'BasketController@getAdd');
 Route::get('basket', 'BasketController@getAll');
 Route::get('basket/dell/{id}', 'BasketController@getDell');
 Route::get('basket/clear', 'BasketController@getClear');
-
+Route::get('orderreg', 'BasketController@index');
 
 Route::get('{url}', 'StaticController@getIndex');

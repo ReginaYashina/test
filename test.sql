@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3307
--- Время создания: Окт 31 2018 г., 18:17
+-- Время создания: Ноя 01 2018 г., 14:15
 -- Версия сервера: 5.7.20
 -- Версия PHP: 7.2.0
 
@@ -149,7 +149,8 @@ INSERT INTO `menus` (`id`, `position`, `menu_type`, `icon`, `name`, `title`, `pa
 (1, NULL, 0, NULL, 'User', 'User', NULL, NULL, NULL),
 (2, NULL, 0, NULL, 'Role', 'Role', NULL, NULL, NULL),
 (3, 0, 1, 'fa-database', 'Category', 'Categories', NULL, '2018-10-27 06:02:48', '2018-10-27 06:02:48'),
-(5, 0, 1, 'fa-database', 'Product', 'Products', NULL, '2018-10-27 06:18:29', '2018-10-27 06:18:29');
+(5, 0, 1, 'fa-database', 'Product', 'Products', NULL, '2018-10-27 06:18:29', '2018-10-27 06:18:29'),
+(6, 0, 3, 'fa-database', 'Order', 'Orders', NULL, '2018-11-01 08:57:12', '2018-11-01 08:57:12');
 
 -- --------------------------------------------------------
 
@@ -168,7 +169,8 @@ CREATE TABLE `menu_role` (
 
 INSERT INTO `menu_role` (`menu_id`, `role_id`) VALUES
 (3, 1),
-(5, 1);
+(5, 1),
+(6, 1);
 
 -- --------------------------------------------------------
 
@@ -209,7 +211,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `orders` (
   `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `body` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `fio` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -219,10 +220,28 @@ CREATE TABLE `orders` (
   `pay` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `comment` text COLLATE utf8mb4_unicode_ci,
   `user_id` int(11) NOT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `orders`
+--
+
+INSERT INTO `orders` (`id`, `body`, `fio`, `email`, `phone`, `adress`, `type`, `pay`, `comment`, `user_id`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'a:0:{}', '41fffffffffffffffffffffffff', 'rrrrrrrrrrrrrrrrrrrrr@ggggggggg', 'rrrrrrrrrrrrrrrrr', 'kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk', 'Доставка курьером', 'Предоплата через ЕРИП', NULL, 0, NULL, '2018-11-01 07:24:25', '2018-11-01 07:24:25'),
+(2, 'a:3:{i:1;s:1:\"1\";i:2;s:1:\"1\";i:3;s:1:\"1\";}', '6666666666666666666666666666666666666', 'rrrrrrrrrrrrrrrrrrrrr@ggggggggg', '454545454', 'kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk', 'Доставка курьером', 'Оплата наличными курьеру или при самовывозе', NULL, 0, NULL, '2018-11-01 08:00:46', '2018-11-01 08:00:46'),
+(3, 'a:3:{i:1;s:1:\"1\";i:2;s:1:\"1\";i:3;s:1:\"1\";}', '6666666666666666666666666666666666666', 'rrrrrrrrrrrrrrrrrrrrr@ggggggggg', 'rrrrrrrrrrrrrrrrr', 'kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk', 'Доставка курьером', 'Оплата наличными курьеру или при самовывозе', NULL, 0, NULL, '2018-11-01 08:23:55', '2018-11-01 08:23:55'),
+(4, 'a:1:{i:1;s:1:\"1\";}', '41fffffffffffffffffffffffff', 'ttttttttttttttttttttt@rrrrrrrrrrrrrrrr', ';;;;;;;;;;;;;', 'kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk', 'Доставка курьером', 'Оплата наличными курьеру или при самовывозе', NULL, 0, NULL, '2018-11-01 08:26:15', '2018-11-01 08:26:15'),
+(5, 'a:1:{i:6;s:1:\"6\";}', 'ggggggggggggggggggggggggggggggggggggggggggg', 'd@ujjjj', 'fffffffffffffffffffff', 'fffffffffffff', 'Доставка курьером', 'Оплата наличными курьеру или при самовывозе', NULL, 0, NULL, '2018-11-01 08:27:52', '2018-11-01 08:27:52'),
+(6, 'a:1:{i:5;s:1:\"2\";}', 'Regina', 'reginayashina@inbox.ru', '222 222 222', 'Minsk', 'Доставка курьером', 'Оплата наличными курьеру или при самовывозе', NULL, 1, NULL, '2018-11-01 08:38:07', '2018-11-01 08:38:07'),
+(7, 'a:0:{}', 'Regina', 'reginayashina@inbox.ru', '222 222 222', 'Minsk', 'Доставка курьером', 'Оплата наличными курьеру или при самовывозе', NULL, 1, NULL, '2018-11-01 08:40:45', '2018-11-01 08:40:45'),
+(8, 'a:2:{i:1;s:1:\"1\";i:3;s:1:\"4\";}', 'Regina', 'reginayashina@inbox.ru', '222 222 222', 'Minsk', 'Доставка почтой по РБ', 'Предоплата через ЕРИП', NULL, 2, NULL, '2018-11-01 11:00:18', '2018-11-01 11:00:18'),
+(9, 'a:2:{i:1;s:1:\"1\";i:3;s:1:\"4\";}', 'Regina', 'reginayashina@inbox.ru', '222 222 222', 'Minsk', 'Доставка почтой по РБ', 'Предоплата через ЕРИП', NULL, 2, NULL, '2018-11-01 11:01:32', '2018-11-01 11:01:32'),
+(10, 'a:2:{i:1;s:1:\"1\";i:3;s:1:\"4\";}', 'Regina', 'reginayashina@inbox.ru', '222 222 222', 'Minsk', 'Доставка почтой по РБ', 'Предоплата через ЕРИП', NULL, 2, NULL, '2018-11-01 11:02:14', '2018-11-01 11:02:14'),
+(11, 'a:2:{i:1;s:1:\"1\";i:3;s:1:\"4\";}', 'Regina', 'reginayashina@inbox.ru', '222 222 222', 'Minsk', 'Доставка почтой по РБ', 'Предоплата через ЕРИП', NULL, 2, NULL, '2018-11-01 11:03:48', '2018-11-01 11:03:48'),
+(12, 'a:1:{i:1;s:1:\"1\";}', 'Regina', 'reginayashina@inbox.ru', '222 222 222', 'Minsk', 'Самовывоз', 'Оплата по карте', NULL, 2, NULL, '2018-11-01 11:07:54', '2018-11-01 11:07:54');
 
 -- --------------------------------------------------------
 
@@ -311,7 +330,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'ReginaYashina', 'ReginaYashina@inbox.ru', NULL, '$2y$10$3v.fTJ7THDgMdFyQyBgfX.I6bswf4tERBwcpEIeGSQd8Ntt0GZwzq', 'qxLgvi8a49LjhKJiWlMRwvD5mcFrznQsGS8ulohNYzjGriZ0npu5Puw4N6b0', '2018-10-25 07:43:21', '2018-10-25 07:43:21'),
+(1, NULL, 'ReginaYashina', 'ReginaYashina@inbox.ru', NULL, '$2y$10$3v.fTJ7THDgMdFyQyBgfX.I6bswf4tERBwcpEIeGSQd8Ntt0GZwzq', 'okh71yz6wWmpagA0RViaIQjpAxuiCkcx719usVbGcpM69HyAz53aWcbtuZlV', '2018-10-25 07:43:21', '2018-10-25 07:43:21'),
 (2, 1, 'Regina', 'queen24.11@inbox.ru', NULL, '$2y$10$/OvQz.W66sUMT1FO1KpzxuMBp91x/XwkPmNsamUBDrFHZdHTUcur.', '4GA4wORVdlLFQhr4fUQ9U9tRBHnJow1f0BFMheYnbGEJgldWCVpQhcnMeOuo', '2018-10-27 05:46:30', '2018-10-27 05:46:30');
 
 -- --------------------------------------------------------
@@ -366,7 +385,8 @@ INSERT INTO `users_logs` (`id`, `user_id`, `action`, `action_model`, `action_id`
 (29, 2, 'updated', 'users', 2, '2018-10-27 10:31:58', '2018-10-27 10:31:58'),
 (30, 1, 'updated', 'users', 1, '2018-10-27 10:34:44', '2018-10-27 10:34:44'),
 (31, 1, 'updated', 'users', 1, '2018-10-27 10:37:46', '2018-10-27 10:37:46'),
-(32, 2, 'updated', 'users', 2, '2018-10-27 11:04:56', '2018-10-27 11:04:56');
+(32, 2, 'updated', 'users', 2, '2018-10-27 11:04:56', '2018-10-27 11:04:56'),
+(33, 1, 'updated', 'users', 1, '2018-11-01 08:55:48', '2018-11-01 08:55:48');
 
 --
 -- Индексы сохранённых таблиц
@@ -486,7 +506,7 @@ ALTER TABLE `maintexts`
 -- AUTO_INCREMENT для таблицы `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `migrations`
@@ -498,7 +518,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT для таблицы `product`
@@ -522,7 +542,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `users_logs`
 --
 ALTER TABLE `users_logs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

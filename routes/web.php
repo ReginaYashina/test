@@ -18,7 +18,7 @@ Route::get('basket/dell/{id}', 'BasketController@getDell');
 Route::get('basket/clear', 'BasketController@getClear');
 Route::get('orderreg', 'BasketController@index');
 Route::post('order', 'OrderController@postOrder');
-
+Route::get('admin/order/one/{id}','Admin\OrderController@getIndex');
 
 
 

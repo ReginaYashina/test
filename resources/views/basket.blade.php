@@ -11,6 +11,19 @@
 <h2>Корзина</h2>
 	<div class="maintext">
 		<div class="card-body">
+		@if (count($errors)>0)
+			<div class ="allert allert-danger">
+				<strong>Whoops!</strong>Найдены следующие ошибки:<br/><br/>
+					<ul>
+					 @foreach($errors->all() as $error)
+						<li>
+						{{$error}}
+						</li>
+					 @endforeach
+					</ul>
+			</div>
+		@endif
+				
                                 <form method="POST" action="{{asset('order')}}">
 								 @csrf
 		<table class="table table-bordered table-striped" width="100%">
@@ -72,21 +85,26 @@
 		 <div class="right"><button type="button" class="btn btn-primary " id="ord"  >Перейти к оформлению заказа</button></div>
 
 	</div>
-	
+	<script>
+	 $(function(){
+		 $('#of').css('display','block');
+	 })
+	</script>
 	<div id="of"  class="ofrml">
 	 <div class="col-md-6">      
 					
                                    
 
                                     <div class="form-group row">
-                                        <label for="name" class="col-md-2 col-form-label text-md-right">ФИО<i>*</i></label>
+                                        <label for="fio" class="col-md-2 col-form-label text-md-right">ФИО<i>*</i></label>
 
                                         <div class="col-md-10">
-                                            <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+							
+                                            <input id="fio" type="text" class="form-control{{ $errors->has('fio') ? ' is-invalid' : '' }}" name="fio" value="{{ old('fio') }}" required autofocus>
 
-                                            @if ($errors->has('name'))
+                                            @if ($errors->has('fio'))
                                                 <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->first('name') }}</strong>
+                                                    <strong>{{ $errors->first('fio') }}</strong>
                                                 </span>
                                             @endif
                                         </div>
@@ -110,11 +128,11 @@
                                         <label for="address" class="col-md-2 col-form-label text-md-right">Адрес<i>*</i></label>
 
                                         <div class="col-md-10">
-                                            <input id="address" type="text" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="address" required>
+                                            <input id="adress" type="text" class="form-control{{ $errors->has('adress') ? ' is-invalid' : '' }}" name="adress" value="{{ old('adress') }}" required>
 
-                                            @if ($errors->has('address'))
+                                            @if ($errors->has('adress'))
                                                 <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->first('address') }}</strong>
+                                                    <strong>{{ $errors->first('adress') }}</strong>
                                                 </span>
                                             @endif
                                         </div>
@@ -124,14 +142,19 @@
                                         <label for="phone" class="col-md-2 col-form-label text-md-right">Телефон<i>*</i></label>
 
                                         <div class="col-md-10">
-                                            <input id="phone" type="text" class="form-control" name="phone" required>
+                                            <input id="phone" type="text" class="form-control" name="phone" value="{{ old('phone') }}" required>
+											  @if ($errors->has('phone'))
+                                                <span class="invalid-feedback" role="alert" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" required>
+                                                    <strong>{{ $errors->first('phone') }}</strong>
+                                                </span>
+                                            @endif
                                         </div>
                                     </div>
 									<div class="form-group row">
                                         <label for="exampleFormControlSelect1" class="col-md-5 col-form-label text-md-right">Выберите способ доставки</label>
 										
 						<div class="col-md-7">
-                                <select class="form-control" id="exampleFormControlSelect1">
+                                <select class="form-control" id="exampleFormControlSelect1" name="type">
                                   <option>Доставка курьером</option>
                                   <option>Самовывоз</option>
                                   <option>Доставка почтой по РБ</option>
@@ -142,7 +165,7 @@
                             <div class="form-group row">
                                         <label for="exampleFormControlSelect1" class="col-md-5 col-form-label text-md-right">Выберите способ оплаты</label>
 										<div class="col-md-7">
-                                <select class="form-control" id="exampleFormControlSelect1">
+                                <select class="form-control" id="exampleFormControlSelect1" name="pay">
                                   <option>Оплата наличными курьеру или при самовывозе</option>
                                   <option>Предоплата через ЕРИП</option>
                                   <option>Оплата по карте </option>

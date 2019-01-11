@@ -3,6 +3,7 @@
 ## Информация по установке
 - cd domains
 - git clone https://github.com/ReginaYashina/test.git
+- cd test
 - composer self-update
 - composer install
 - создать базу с именем проекта test

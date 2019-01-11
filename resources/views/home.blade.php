@@ -1,4 +1,4 @@
-@extends('layouts.base')
+@extends('layouts.main')
 @section('scripts')
 @parent
 <script src="{{asset('media/ckeditor/ckeditor.js')}}"></script>

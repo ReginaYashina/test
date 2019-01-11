@@ -21,6 +21,10 @@ class Aliexpress implements ParseContract
         $file = file_get_contents($url);//весь html страницы, которую парсим
         $this->crawler = new Crawler($file);
 		$body=$this->crawler->filter('body')->html();
-		echo $body;
+        // $('$body').each(function(){
+        //     var pct=$(this).filter('.item')
+        // });
+        // echo pct;
+        echo $body;
     }
 }

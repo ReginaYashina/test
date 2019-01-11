@@ -45,13 +45,20 @@
 {!! Form::close() !!}
 
 <!--добавляем кнопку для загрузки товаров с Алиэкспресс-->
-<div class="form-group">
-<form >
-	<input type="text" id="parse_aliexpress"></input>
-	<input type ="button" value="Загрузить с Aliexpress" data-id="{{$category->name}}" class = "parse"/>
-</form>
-<hr/>
-<div id="empty">
-</div>
-</div>
+<div class="row">
+    <div class="form-group">
+        <div class="col-sm-10 col-sm-offset-2">
+            <div>
+                <form >
+                    <input type="text" id="parse_aliexpress" size="52"></input>
+                 <input type ="button" value="Загрузить с Aliexpress" data-id="{{$category->name}}" class = "parse"/>
+             </form>
+             <hr/>
+             <div id="empty">
+             </div>
+         </div>
+     </div>
+ </div>
+ 
+
 @endsection

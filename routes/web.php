@@ -23,6 +23,16 @@ Route::get('admin/order/one/{id}','Admin\OrderController@getIndex');
 Route::post('ajax','AjaxController@postIndex');
 
 
+Route::get('product/{id}', 'KatalogController@getOne');
+
+
+
+Route::get('home', 'HomeController@getIndex');
+// Route::get('home-order/{id}', 'HomeController@getIndex');
+
+
+
+
 
 
 

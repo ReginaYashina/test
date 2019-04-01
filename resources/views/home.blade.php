@@ -11,7 +11,7 @@
           @endif
 <h2 class = "feedback">Ваши заказы:</h2>
 <p>должны выводиться заказы</p>
-
+   
             <form method="post" action="{{('home')}}">
 					     {!!csrf_field()!!}
               <!-- <div class="form-group"> -->

@@ -1,32 +1,48 @@
 @extends('layouts.base')
+@section('scripts')
+@parent
+	<script src="{{asset('js/modal.js')}}"></script>
+@endsection
 @section('content')
 				
-				<div class="maintext">
-<div class="container-fluid">
-	<div class="row">
+				<div class="maintext kategory-img">
+<div class="container-fluid ">
+	<div class="row ">
 		<div class="col-lg-2">
-			<!-- <img class="kategory-img" src="../../public/media/img/flowers.jpg" alt=""> -->
-			{{$obj->picture}}
-			<img class="kategory-img" src="{{asset('uploads/thumb/'.$obj->picture)}}" id ="{{$obj->id}}"/>
 		</div>
 		<div class="col-lg-10 kategory-bcgr">
-			<h2 class = "kategory-name">{{$obj->name}}</h2>
-			{!!$obj->body!!}
+			<h2 class = "kategory-name">{{$cats->name}}</h2>
+			{!!$cats->body!!}
 		</div>
 	</div>
+
+
+  @foreach($cats->product()->get() as $one)
+			<div class="product-photo" >
+
+						@if ($one->picture)
+							<img class="product" src="{{asset('uploads/thumb/'.$one->picture)}}" id ="{{$one->id}}"/>
+						@else
+							<img class="product no-photo" src="{{asset('media/img/no_photo.png')}}" id ="{{$one->id}}"/>
+						@endif
+						<p>
+							<a href ="{{asset('product/'.$one->id)}}" class="product_link">
+								{{$one->name}}
+							</a>
+						</p>
+						<!-- {!!$one->body!!} -->
+			</div>
+
+
+	@endforeach 		
+
+
+
+
+
+
+
 </div>
-<hr/>
-
-
-
-
-
-
-
-
-
-
-
 
 				</div>
 @endsection

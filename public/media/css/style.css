@@ -18,6 +18,15 @@ body{
   src: url("../fonts/eurof55.ttf");
 }
 
+.resp-top{
+		margin-top: 2%;
+	}
+
+.resp-right-col{
+		margin-top: 5%;
+		padding-left: 20%;
+	}
+
 #header{
 	background:url("../img/fon.jpg");
 }
@@ -27,20 +36,20 @@ body{
 	width: 100%;
 }
 
+
 #logotext {
-	/*text-align: center;*/
-	/*padding-left: 15%;*/
-	padding-top: 6%;
-	font-size: 1000%;
+	text-align: center;
+	font-size: 250px;
 	font-family: '36 days ago BRK';
 	text-transform: uppercase;
-	text-shadow: 1px 10px 10px #63881a;
+	/*letter-spacing: 10px;*/
+	text-shadow: 10px 1px 10px #63881a;
 }
 
 #logotext:first-letter{
 	font-weight: bold;
 	color: #63881a;
-	text-shadow: 1px 10px 10px #000;
+	text-shadow: 10px 1px 10px #000;
 }
 
 .topmenu {
@@ -100,8 +109,27 @@ margin-top: 6%;
  .ofrml{
 	 display:none;
 	 margin-top:50px;
+	 font-size: 50%;
+	 font-family: "Helvetica Neue", Helvetica, Arial,sans-serif;
+	 text-align: left;
+ }
+
+ .basket-textarea{
+ 	margin-top: 5%;
  }
  
+.fail{
+	width: 90%;
+	margin: 2% auto;
+	background-color: rgba(255, 99, 71, .5);
+	box-shadow: 1px 1px 10px 1px #ccc;
+	font-family: Arial, sans-serif;
+	font-size: 50%;
+	z-index: 101;
+	padding: 5%;
+}
+
+
 .mdl{
 	text-align: justify;
 	font-family: 'eurofurence';
@@ -146,6 +174,7 @@ margin-top: 6%;
 	text-decoration:none;
 	color: green;
 	font-size: 55px;
+	z-index:101;
 }
 
 .modal-close:hover{
@@ -217,11 +246,12 @@ box-shadow: 2px 2px 2px #63881a;
 }
 
 .basket{
-	margin-top: 25%;
+	margin-top: 37%;
 }
 
 .kategory{
 	margin-top: 2.5%;
+	z-index: 0;
 }
 
 .kategory-name{
@@ -229,16 +259,15 @@ box-shadow: 2px 2px 2px #63881a;
 }
 
 .kategory-img{
-	margin: 10%;
-	/*box-shadow: 2px 2px 2px #63881a;*/
-	border-radius: 5px;
-	mix-blend-mode: hard-light;
-}
+	}
+  
+
 
 .kategory-bcgr{
 	background-color: #fff;
-	margin-top: 20%;
-	box-shadow: 2px 2px 2px #63881a;
+	margin-top: 6%;
+	margin-left: 8%;
+	box-shadow: 12px 12px 12px  #63881a;
 }
 
 .product-photo{
@@ -281,6 +310,16 @@ box-shadow: 2px 2px 2px #63881a;
 }
 
 
+.basket-table {
+	font-size: 50%;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+}
+
+
+.del{
+	text-align: center;
+
+}
 
 
 
@@ -295,26 +334,14 @@ box-shadow: 2px 2px 2px #63881a;
 
 
 
+ @media screen and (max-width: 640px){
+		
+#logotext{
+		text-align: center;
+		font-size: 100px; 
+		text-shadow: 5px 1px 5px #63881a;
+	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- @media screen and (max-width:600px){
-	 #header{
-		 height:100px;
-	 }
 	 
 	 #logo{
 		 display: none;
@@ -324,6 +351,181 @@ box-shadow: 2px 2px 2px #63881a;
 		 flex-direction: column;
 	 }
 	 
+	 .resp-right-col{
+		margin: 1%;
+		padding-left: 0;
+		padding-bottom: 1%;
+	}
+
+	.basket{
+		margin-top: -7%;
+		text-align: right;
+
+}
 	 
-	 
+  .modal-window{
+   position: fixed;
+	 top: 5px;
+	 left: 20%;
+	 width: 500px;
+	 margin-left: -50px;
+	 padding:10px;
+	 border: solid 1px #ccc;
+	 border-radius: 5px;
+	 box-shadow: 1px 1px 1px gray;
+	 z-index:100;
+	 background-color: #FFFACD;
+	 font-size: 10px;
+
+  }
+
+.modal-window img{
+	display: none;
+}
+
+
  }
+
+ @media screen and (min-width: 642px) and (max-width: 1024px){
+	#logo{
+		width: 30%;
+		margin-top: 1%;
+
+
+	}
+
+	.small-logo{
+		text-align: center;
+	}
+
+	#logotext{
+		text-align: center;
+		font-size: 100px; 
+		text-shadow: 5px 1px 5px #63881a;
+	}
+
+	.reg{
+		margin-bottom: 5%;
+	}
+
+	.basket{
+		margin-top: -9%;
+		text-align: right;
+}
+
+ .resp-right-col{
+		margin: 0;
+		padding: 0;
+		
+	}
+
+.modal-window{
+   position: fixed;
+	 top: 15px;
+
+  }
+
+.modal-window img{
+	margin-top: 3%;
+}
+
+
+}
+
+
+
+@media screen and (min-width: 1025px) and (max-width: 1280px){
+	#logotext {
+			font-size: 150px;			
+		}
+
+	.basket{
+		margin-top: 20%;
+	}
+
+	.resp-top{
+		margin-top: 2%;
+	}
+
+	 .resp-right-col{
+		margin: 3%  1%;
+		padding-left: 0;
+		/*padding-bottom: 1%;*/
+	}
+
+	.login, .reg, .basket {
+		font-size: 190%;
+	}
+
+	.login-name{
+		font-size: 110%;
+	}
+
+}
+
+@media screen and (min-width: 1281px) and (max-width: 1366px){
+	#logo{
+		margin-top: 7%;
+
+	}
+
+	#logotext {
+		font-size: 180px;
+		
+	}
+
+	.resp-right-col{
+		margin-top: 10%;
+		padding-left: 10%;
+	}
+
+
+	.basket{
+		margin-top: 25%;
+	}
+
+	.resp-top{
+		margin-top: 2%;
+	}
+
+.login-name{
+		font-size: 130%;
+	}
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

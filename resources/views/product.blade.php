@@ -5,7 +5,7 @@
 
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-lg-2">
+				<div class="col-lg-3">
 					@if ($obj->picture)
 						<img class="product" src="{{asset('uploads/thumb/'.$obj->picture)}}" id ="{{$obj->id}}"/>
 					@else
